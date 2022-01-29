@@ -6,7 +6,6 @@ import matplotlib.pyplot as plt
 import plotly.express as px
 import random
 import warnings
-import squarify
 warnings.filterwarnings("ignore")
 
 
