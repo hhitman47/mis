@@ -151,7 +151,7 @@ with left_column:
     #ax.set_ylabel('Scores')
     ax.set_title('Number of Victims (Province Wise)')
     ax.set_xticks(x, labels)
-    ax.legend()
+   # ax.legend()
     ax.bar_label(rects1, padding=2)
     fig.tight_layout()
     st.pyplot(fig)
@@ -173,7 +173,7 @@ with right_column :
     #ax.set_ylabel('Scores')
     ax.set_title('Number of Victims in Provinces (Gender wise)')
     ax.set_xticks(x, labels)
-    ax.legend()
+   # ax.legend()
 
     ax.bar_label(rects1, padding=3)
     ax.bar_label(rects2, padding=3)
