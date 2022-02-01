@@ -234,7 +234,7 @@ c = random.choices(all_colors, k=n)
 plt.figure(figsize=(16,10), dpi= 80)
 plt.bar(df['HRCat'], df['counts'], color=c, width=.5)
 for i, val in enumerate(df['counts'].values):
-plt.text(i, val, int(val), horizontalalignment='center', verticalalignment='bottom', fontdict={'fontweight':500, 'size':12})
+            plt.text(i, val, int(val), horizontalalignment='center', verticalalignment='bottom', fontdict={'fontweight':500, 'size':12})
 
 # Decoration
 plt.gca().set_xticklabels(df['HRCat'], rotation=60, horizontalalignment= 'right')
