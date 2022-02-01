@@ -222,45 +222,26 @@ st.markdown("##")
 st.markdown("---")
 st.markdown("##")
 
-left_column , right_column = st.columns(2)
-
-with left_column:
-
-    df = df_selection.groupby('HRCat').size().reset_index(name='counts')
-    n = df['HRCat'].unique().__len__()+1
-    all_colors = list(plt.cm.colors.cnames.keys())
-    random.seed(100)
-    c = random.choices(all_colors, k=n)
-
-    # Plot Bars
-    plt.figure(figsize=(16,10), dpi= 80)
-    plt.bar(df['HRCat'], df['counts'], color=c, width=.5)
-    for i, val in enumerate(df['counts'].values):
-        plt.text(i, val, int(val), horizontalalignment='center', verticalalignment='bottom', fontdict={'fontweight':500, 'size':12})
-
-    # Decoration
-    plt.gca().set_xticklabels(df['HRCat'], rotation=60, horizontalalignment= 'right')
-    plt.title("Number of Victims  in " + str(option) +  " (Violation Wise)", fontsize=22)
-    #plt.ylabel('# Vehicles')
-    plt.ylim(0, df['counts'].max()+10)
-    st.markdown("##")
-    st.pyplot(plt)
 
 
-with right_column:
+df = df_selection.groupby('HRCat').size().reset_index(name='counts')
+n = df['HRCat'].unique().__len__()+1
+all_colors = list(plt.cm.colors.cnames.keys())
+random.seed(100)
+c = random.choices(all_colors, k=n)
 
-    df = df_selection.groupby('HRCat').size().reset_index(name='counts')
-    labels = df.apply(lambda x: str(x[0]) + "\n (" + str(x[1]) + ")", axis=1)
-    sizes = df['counts'].values.tolist()
-    colors = [plt.cm.Spectral(i/float(len(labels))) for i in range(len(labels))]
+# Plot Bars
+plt.figure(figsize=(16,10), dpi= 80)
+plt.bar(df['HRCat'], df['counts'], color=c, width=.5)
+for i, val in enumerate(df['counts'].values):
+plt.text(i, val, int(val), horizontalalignment='center', verticalalignment='bottom', fontdict={'fontweight':500, 'size':12})
 
-    # Draw Plot
-    plt.figure(figsize=(12,8), dpi= 80)
-    squarify.plot(sizes=sizes, label=labels, color=colors, alpha=.8)
+# Decoration
+plt.gca().set_xticklabels(df['HRCat'], rotation=60, horizontalalignment= 'right')
+plt.title("Number of Victims  in " + str(option) +  " (Violation Wise)", fontsize=22)
+#plt.ylabel('# Vehicles')
+plt.ylim(0, df['counts'].max()+10)
+st.markdown("##")
+st.pyplot(plt)
 
-    # Decorate
-    plt.title("Number of Victims  in " + str(option) +  " (Violation  Wise)", fontsize=22)
-    st.markdown("##")
-    plt.axis('off')
-    #plt.show()
-    st.pyplot(plt)
+
