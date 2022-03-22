@@ -27,7 +27,7 @@ df =  pd.read_excel(
     io="2022-till-march.xlsx",
     sheet_name='cases',
     skiprows= 0,
-    usecols='B:N',
+    usecols='A:N',
     nrows=10000,
 )
 #print(df)
