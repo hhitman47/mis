@@ -24,7 +24,7 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 
 #st.title('Uber pickups in NYC')
 df =  pd.read_excel(
-    io="2022-till-march.xlsx",
+    io="2021.xlsx",
     sheet_name='cases',
     skiprows= 0,
     usecols='A:N',
